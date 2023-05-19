@@ -60,7 +60,7 @@ const Navbar = () => {
             onClick={() => setToggle(!toggle)}
           /> 
 
-          <div className=>
+          <div className=''>
 
           </div>
         </div>
