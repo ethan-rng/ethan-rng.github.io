@@ -11,6 +11,14 @@ import linkedin from './Social Media/linkedin.svg';
 import email from './Social Media/email.svg';
 import instagram from './Social Media/instagram.svg';
 
+import logo from './Miscellaneous/logo.svg';
+
+import rain from './Backgrounds/rain.png';
+import test from './Backgrounds/test.jpeg';
+import city2 from './Backgrounds/city2.jpeg';
+
+import profile from './Profile and Headshots/profile.jpg';
+
 export {
     close,
     menu,
@@ -24,4 +32,12 @@ export {
     linkedin,
     email,
     instagram,
+
+    logo,
+
+    rain,
+    test,
+    city2,
+
+    profile,
 }

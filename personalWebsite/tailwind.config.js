@@ -5,13 +5,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
+        primary: "#0f0f0f",
+        secondary: "#1E1E1E",
+        tertiary: "#F3F4F6",
+
         "black-100": "#100d25",
         "black-200": "#1E1E1E",
         "white-100": "#f3f3f3",
       },
+      transitionDuration: { 
+        600: "600ms",
+      },
+
+      width: {
+        "128": "45rem",
+      },
+      height: {
+        "128": "52rem",
+      },
+
+      animation: {
+        "navbar": "navbar 600ms ease-in-out 600ms", 
+      },
+    
     },
   },
   plugins: [],
