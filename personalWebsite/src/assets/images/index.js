@@ -1,9 +1,9 @@
-import close from './Side Bar/close.svg';
-import menu from './Side Bar/menu.svg';
-import home from './Side Bar/home.svg';
-import aboutme from './Side Bar/aboutme.svg';
-import projects from './Side Bar/projects.svg';
-import contact from './Side Bar/contact.svg';
+import close from './SideBar/close.svg';
+import menu from './SideBar/menu.svg';
+import home from './SideBar/home.svg';
+import aboutme from './SideBar/aboutme.svg';
+import projects from './SideBar/projects.svg';
+import contact from './SideBar/contact.svg';
 
 import discord from './Social Media/discord.svg';
 import github from './Social Media/github.svg';
@@ -18,6 +18,7 @@ import test from './Backgrounds/test.jpeg';
 import city2 from './Backgrounds/city2.jpeg';
 
 import profile from './Profile and Headshots/profile.jpg';
+import aboutmephoto from './Profile and Headshots/aboutmephoto.jpg';
 
 export {
     close,
@@ -40,4 +41,5 @@ export {
     city2,
 
     profile,
+    aboutmephoto,
 }

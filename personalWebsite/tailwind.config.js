@@ -11,10 +11,12 @@ export default {
 
         "black-100": "#100d25",
         "black-200": "#1E1E1E",
+        "gray-100": "#AAAAAA",
         "white-100": "#f3f3f3",
+        "orange-100": "#FFA500",
       },
       transitionDuration: { 
-        600: "600ms",
+        "600": "600ms",
       },
 
       width: {

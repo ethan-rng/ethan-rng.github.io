@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LoadingPage, Sidebar, Hero, Banner } from './components';
+import { LoadingPage, Sidebar, Hero, Banner, AboutMe, Timeline, Footer } from './components';
 import './App.css'
 
 function App() {
@@ -24,11 +24,14 @@ function App() {
           {/* Actual Page */}
           <Banner />
 
-          <div className='pt-16'>
+          <div className='pt-10'>
             <Sidebar />
             <Hero />
           </div>
 
+          <AboutMe />
+          <Timeline />
+          <Footer />
         </div>
       )
     }
