@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600&family=Great+Vibes&family=Orbitron:wght@500&family=Poppins:wght@300;400&display=swap');
+
+
+main {
+    font-family: 'Abhaya Libre', serif;
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Orbitron', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
