@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.tag {
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    ;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+.Email path {
+    fill: white;
+    transition: fill 0.3s ease-in-out;
+}
+
+.Email:hover path {
+    fill: #7eeda5;
+}
+
+
+.Instagram {
+    background-color: white;
+    transition: background-color 0.3s ease-in-out 0.3s;
+}
+
+.Instagram:hover {
+    background-color: #ed7edb;
+}
+
+.Github {
+    background-color: white;
+    transition: background-color 0.3s ease-in-out 0.3s;
+}
+
+.Github:hover {
+    background-color: #a57eed;
+}
+
+.Discord {
+    background-color: white;
+    transition: background-color 0.3s ease-in-out 0.3s;
+}
+
+.Discord:hover {
+    background-color: #7ea0ed;
+}
+
+.LinkedIn {
+    background-color: white;
+    transition: background-color 0.3s ease-in-out 0.3s;
+}
+
+.LinkedIn:hover {
+    background-color: #0b65c2;
+}
+
+
+.terminal-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal-title {
+    color: #9fa;
+}
+
+.terminal-content {
+    padding: 10px;
+}
+
+.command-line {
+    margin-top: 10px;
+}
+
+.finder-window {
+    display: flex;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.sidebar {
+    width: 200px;
+    border-right: 1px solid #ccc;
+}
+
+.files-view {
+    flex-grow: 1;
+    padding: 10px;
+}

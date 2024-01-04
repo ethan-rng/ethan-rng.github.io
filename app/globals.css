@@ -2,13 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600&family=Great+Vibes&family=Orbitron:wght@500&family=Poppins:wght@300;400&display=swap');
-
-
-main {
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600&family=Great+Vibes&family=Kanit:wght@300&family=Orbitron:wght@500&family=Poppins:wght@300;400&family=Roboto&family=Source+Code+Pro&display=swap');
+.abhayaLibre {
     font-family: 'Abhaya Libre', serif;
-    font-family: 'Great Vibes', cursive;
-    font-family: 'Orbitron', sans-serif;
-    font-family: 'Poppins', sans-serif;
 }
-
+.greatVibes {
+    font-family: 'Great Vibes', serif;
+}
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+.terminal-font {
+    font-family: 'Source Code Pro', monospace;
+}
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+.source-font{
+    font-family: 'Source Code Pro', monospace;
+}
+ 

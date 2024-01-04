@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navBar{
+    transition: background-color 1.5s linear;
+}
+
+.arrow-container {
+    position: absolute;
+    bottom: 15rem; 
+}
+
+.terminal-font {
+    font-family: 'Source Code Pro', monospace;
+}

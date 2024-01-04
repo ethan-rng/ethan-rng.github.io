@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import NavBar from "@/components/(root)/NavBar";
-import Footer from "@/components/(root)/Footer";
+import NavBar from "@/components/shared/NavBar";
+import Footer from "@/components/shared/Footer";
 import Head from "next/head";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,12 +23,13 @@ export default function RootLayout({
         <title>Ethan Rong's Personal Website</title>
         <meta name="description" content="Welcome to My Personal Website" />
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Great+Vibes&family=Kanit&family=Orbitron&family=Poppins&display=swap" rel="stylesheet" />
       </Head>
 
       <body className={inter.className}>
-        <div className="bg-primary">
+        <div className="bg-primary ">
           <NavBar />
-          <div className='mt-'>
+          <div className=''>
             {children}
           </div>
           <Footer />

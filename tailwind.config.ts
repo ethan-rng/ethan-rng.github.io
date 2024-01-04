@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#101A25",
-        secondary: "#363636",
-        tertiary: "#313F4F",
+        primary: "#282C34",
+        secondary: "#393738",
+        tertiary: "#4F7CAC",
       },
       transitionDelay: {
         '0': '0ms',
@@ -30,9 +30,6 @@ const config: Config = {
         "2xl": "1536px", // Extra extra large screens
         // Add more custom screen sizes as needed
       },
-      boxShadow: {
-        glow: '0 0 15px rgba(255, 255, 255, 0.6)',
-      },
     },
 
     animation: {
@@ -42,6 +39,10 @@ const config: Config = {
       slideright: "slideright 1s ease-in-out",
       wave: "wave 1.2s linear infinite",
       slowfade: "slowfade 2.2s ease-in-out",
+      bounce: "bounce 1s infinite",
+      grow: "grow 1s ease-in forwards",
+      fadeInUp: 'fadeInUp 1s ease-out forwards',
+      fadeInOut: "fadeInOut 2s linear infinite",
     },
 
     keyframes: {
@@ -65,9 +66,34 @@ const config: Config = {
         from: { opacity: "0" },
         to: { opacity: "1" },
       },
+      bounce: {
+        '0%, 100%': { 
+          transform: 'translateY(-25%)',
+          'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)', // Optional if you want to include it here
+        },
+        '50%': { 
+          transform: 'translateY(0)',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)', // Optional if you want to include it here
+        },
+      },
+      grow: {
+        from: { transform: "scale(0.6)" },
+        to: { transform: "scale(1)" },
+      },
+      fadeInUp: {
+        '0%': { opacity: '0', transform: 'translateY(20px)' },
+        '100%': { opacity: '1', transform: 'translateY(0)' },
+      },
+      fadeInOut: {
+        '0%': { opacity: '1' },
+        '50%': { opacity: '0' },
+        '100%': { opacity: '1' },
+      }
     },
     plugins: [],
   },
 };
+
+
 
 export default config;

@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
 export default function RootLayout({
     children,
 }: {
@@ -9,7 +6,7 @@ export default function RootLayout({
 
     return (
         <div>    
-            <main>
+            <main className='bg-tertiary/90 z-30 sm:px-32 pt-32 flex flex-col'>
                 {children}
             </main>
         </div>
