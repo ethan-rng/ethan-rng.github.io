@@ -15,10 +15,11 @@ const HeroText = () => {
     });
 
     return (
-        <div className='flex flex-col my-[8rem] justify-center animate-slidedown text-white text-4xl sm:text-7xl'>
-            <h1 className='mb-3'>Hi There! </h1>
-            <h1 className='mb-3'>My Name is Ethan Rong </h1>
-            <h1 className='mb-9'>I am a { } <u>{text}</u> <Cursor /> </h1>
+        <div className='flex flex-col items-center my-[8rem] justify-center animate-slidedown text-white text-4xl sm:text-7xl'>
+            <h1 className='mb-3 abhayaLibre'>Hi There! </h1>
+            <h1 className='mb-3 greatVibes'>My Name is Ethan Rong </h1>
+            <h1 className='mb-9 greatVibes'>I am a { } <u>{text}</u> <Cursor /> </h1>
+            <h1 className='text-white animate-slideleft mt-2 text-3xl greatVibes'> Scroll down to find out more! </h1>
 
             <div className='flex flex-row mt-6'>
                 {FooterItems.map((item: FooterType, index: number) => {

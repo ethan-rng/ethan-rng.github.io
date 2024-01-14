@@ -27,7 +27,7 @@ export default function RootLayout({
       </Head>
 
       <body className={inter.className}>
-        <div className="bg-primary ">
+        <div className="bg-secondary">
           <NavBar />
           <div className=''>
             {children}

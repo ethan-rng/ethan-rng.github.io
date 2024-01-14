@@ -43,6 +43,8 @@ const config: Config = {
       grow: "grow 1s ease-in forwards",
       fadeInUp: 'fadeInUp 1s ease-out forwards',
       fadeInOut: "fadeInOut 2s linear infinite",
+      minimize: 'minimizeEffect 0.5s ease-in-out forwards',
+      maximize: 'maximizeEffect 0.5s ease-in-out forwards',
     },
 
     keyframes: {
@@ -88,7 +90,27 @@ const config: Config = {
         '0%': { opacity: '1' },
         '50%': { opacity: '0' },
         '100%': { opacity: '1' },
-      }
+      },
+      minimizeEffect: {
+        '0%': {
+          transform: 'translateY(0) scale(1)',
+          opacity: '1',
+        },
+        '100%': {
+          transform: 'translateY(100px) scale(0.5)',
+          opacity: '0',
+        },
+      },
+      maximizeEffect: {
+        '0%': {
+          transform: 'translateY(100px) scale(0.5)',
+          opacity: '0',
+        },
+        '100%': {
+          transform: 'translateY(0) scale(1)',
+          opacity: '1',
+        },
+      },
     },
     plugins: [],
   },

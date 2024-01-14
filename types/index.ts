@@ -17,6 +17,7 @@ export type HeroCardType = {
 export type TerminalItemType = {
     name: string;
     image: string;
+    rating: string;
     description?: string;
 }
 // TerminalPageType

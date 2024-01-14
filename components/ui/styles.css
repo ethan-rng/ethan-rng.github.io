@@ -107,3 +107,45 @@
     flex-grow: 1;
     padding: 10px;
 }
+
+.applicationWindow {
+    @apply relative rounded-lg w-[90%] h-[95%] z-40 animate-maximize;
+}
+
+.markdown-container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #29292E;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
+    border: 5px solid #c5c1b7;
+    overflow: hidden;
+}
+
+.markdown-header{
+    background: #333;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.markdown-text-header{
+    @apply font-bold text-lg mb-2
+}
+
+.markdown-text{
+    @apply ml-3 text-base mb-1
+}
+
+.powerPoint-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+

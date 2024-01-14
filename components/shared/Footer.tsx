@@ -7,7 +7,7 @@ import { FooterType } from '@/types';
 
 const Footer = () => {
   return (
-    <div className="flex-col sm:flex sm:flex-row justify-between items-center sm:px-32 pb-4 pl-3">
+    <div className="flex-col sm:flex sm:flex-row justify-between items-center sm:px-32 pb-2 pl-3 terminal-font bg-primary">
       <div className="flex flex-col text-white space-y-2 text-1xl sm:text-3xl py-6 ">
         <h1> Let's Connect :) </h1>
         <h1> Copyright © {new Date().getFullYear()} Ethan Rong </h1>

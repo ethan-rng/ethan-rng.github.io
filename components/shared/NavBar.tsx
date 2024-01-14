@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { NavBarItems, logoImage } from "@/constants/index";
 import { NavBarType } from '@/types';
+import "../../app/globals.css";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,7 +32,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 ${isScrolled ? 'bg-primary/90' : 'bg-primary'} text-white`}>
+    <nav className={`terminal-font fixed top-0 left-0 w-full z-50 ${isScrolled ? 'bg-primary/90' : 'bg-primary'} text-white`}>
       <div className='flex items-center justify-between p-4 lg:px-32'>
         <a href="/" className='flex items-center space-x-4'>
           <Image
@@ -40,7 +41,7 @@ const NavBar = () => {
             height={50}
             alt="logo"
           />
-          <span className='text-xl lg:text-3xl font-bold'>ETHAN-RNG</span>
+          <span className='text-xl lg:text-3xl font-bold hover:text-tertiary/95'>ETHAN-RNG</span>
         </a>
 
         <div className='flex items-center lg:hidden'>
@@ -54,8 +55,8 @@ const NavBar = () => {
             <a 
               key={index} 
               href={item.link}
-              className={`block py-2 px-4 text-center lg:text-left text-white/80 hover:text-secondary/95 transition-colors duration-100 
-                ${item.text === "RESUME" ? 'border-2 rounded-md border-white/80 hover:border-secondary/95' : ''} ${index === 0 ? 'mt-0' : 'mt-2 lg:mt-0'}`}
+              className={`block py-2 px-4 text-center lg:text-left text-white/80 hover:text-tertiary/95 transition-colors duration-100 
+                ${item.text === "RESUME" ? 'border-2 rounded-md border-white/80 hover:border-tertiary/95' : ''} ${index === 0 ? 'mt-0' : 'mt-2 lg:mt-0'}`}
             >
               {item.text}
             </a>

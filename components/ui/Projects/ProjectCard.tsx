@@ -10,7 +10,7 @@ type MyComponentProps = {
 
 const ProjectCard: React.FC<MyComponentProps> = ({ projectItem }) => {
   return (
-    <div className="mx-4 my-6 bg-white/80 transform transition duration-300 ease-in-out hover:scale-105 rounded-lg border-secondary border-[6px] group">
+    <div className="mx-4 my-6 bg-white/80 transform transition duration-300 ease-in-out hover:scale-105 rounded-lg border-secondary border-[6px] abhayaLibre group">
       <Link href={projectItem.link} isExternal>
         <Card
           overflow="hidden"

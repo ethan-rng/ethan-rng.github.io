@@ -21,7 +21,7 @@ export default function Projects() {
 
   return (
     <div className={`${renderedItems.length == 0 || renderedItems.length ==  1 ? "py-[500rem]": ""}`}>
-      <h1 className='text-4xl font-bold text-white text-center md:text-left md:pl-5'>
+      <h1 className='text-5xl font-bold text-white text-center md:text-left md:pl-5 greatVibes'>
         <u>Featured Projects</u>
       </h1>
 
