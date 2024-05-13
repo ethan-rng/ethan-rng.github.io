@@ -6,12 +6,28 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        body: ['poppins', 'sans-serif'],
+      },
       colors: {
-        primary: "#282C34",
-        secondary: "#393738",
-        tertiary: "#4F7CAC",
+        primary: "#FAFAFA",
+        secondary: "#EAEAEA",
+        tertiary: "#7dd3fc",
+        highlight: "#FFFFFF",
+        font: "#515050",
+
+        darkPrimary: "#01040C",
+        darkSecondary: "#181818",
+        darkTertiary: "#5C6C82",
+        darkHighlight: "#504E4F",
+        darkFont: "#FFFFFF",
+      },
+      fontSize: {
+        xxxs: ['0.5rem', '0.5rem'],
+        xxs: ['0.625rem', '0.75rem'] 
       },
       transitionDelay: {
         '0': '0ms',
@@ -23,12 +39,13 @@ const config: Config = {
         '1000': '1000ms',
       },
       screens: {
+        'landscape': { 'raw': '(orientation: landscape)'},
+        xs: "385px", // Smallest smartphones
         sm: "640px", // Small screens, like smartphones
         md: "768px", // Medium screens, like tablets
         lg: "1024px", // Large screens, like laptops
         xl: "1280px", // Extra large screens, like desktops
         "2xl": "1536px", // Extra extra large screens
-        // Add more custom screen sizes as needed
       },
     },
 
@@ -69,11 +86,11 @@ const config: Config = {
         to: { opacity: "1" },
       },
       bounce: {
-        '0%, 100%': { 
+        '0%, 100%': {
           transform: 'translateY(-25%)',
           'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)', // Optional if you want to include it here
         },
-        '50%': { 
+        '50%': {
           transform: 'translateY(0)',
           'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)', // Optional if you want to include it here
         },

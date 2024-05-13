@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.vertical-text {
+    transform: rotate(90deg);
+    transform-origin: left bottom;
+    white-space: nowrap;
+    @apply font-extrabold text-3xl
+}
+
+.timeline1 {
+    margin-left: 16.5rem;
+}
+
+.timeline2 {
+    margin-left: 17.75rem;
+}
+
+.timeline3 {
+    margin-left: 17.75rem;
+}
+
+.timeline4 {
+    margin-left: 13.5rem;
+}
+
+.timeline5 {
+    margin-left: 16.25rem;
+}

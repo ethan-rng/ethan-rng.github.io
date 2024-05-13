@@ -2,30 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600&family=Great+Vibes&family=Kanit:wght@300&family=Orbitron:wght@500&family=Poppins:wght@300;400&family=Roboto&family=Source+Code+Pro&display=swap');
-.abhayaLibre {
-    font-family: 'Abhaya Libre', serif;
-}
-.greatVibes {
-    font-family: 'Great Vibes', serif;
-}
-.orbitron {
-    font-family: 'Orbitron', sans-serif;
-}
-.terminal-font {
-    font-family: 'Source Code Pro', monospace;
-}
-.roboto {
-    font-family: 'Roboto', sans-serif;
-}
-.source-font{
-    font-family: 'Source Code Pro', monospace;
+
+html{
+  scroll-behavior: smooth;
+  font-size: 6px
 }
 
-.trapezoid {
-    width: 200px;
-    height: 100px;
-    background-color: #4A90E2; /* Example color */
-    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+
+/* Larger font size for tablets and small desktops */
+@media (min-width: 768px) {
+  html {
+    font-size: 9px;
+  }
 }
- 
+
+/* Even larger font size for medium desktops */
+@media (min-width: 1024px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+/* Largest font size for large desktops */
+@media (min-width: 1200px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 23px;
+  }
+}
+
+:root {
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+

@@ -1,61 +1,87 @@
+// For Logo and Hero Page
+export type ImageType = {
+    light: string
+    dark: string
+} 
+
+
+
 // NavBar
 export type NavBarType = {
     text: string;
     link: string;
 }
 
-// HeroCard Type
-export type HeroCardType = {
-    name: string;
-    direction: string;
-    link: string;
-    image: string;
+
+// About Type
+export type AboutType = {
+    header: string;
     description: string;
 }
 
-// TerminalItemType
+// Terminal Item Type
 export type TerminalItemType = {
     name: string;
     image: string;
     rating: string;
-    description?: string;
+    description: string;
 }
+
 // TerminalPageType
 export type TerminalPageType = {
     name: string;
     items: TerminalItemType[];
+    command: string;
 }
 
 // HobbyItemType
 export type HobbyItemType = {
     name: string;
     varName: string;
-    images: string[];
+    imageCount: number;
+    imageRoute: string;
     description: string;
 }
 
-// Projects and/or Work Type
-export type ProjectWorkType = {
-    name: string;
+
+// Experience Timeline Type
+export type ExperienceTimelineType = {
+    title: string;
     description: string;
-    images: string[];
-    tags: string[];
-    link: string;
-    externalLink?: string;
+    tags?: string[];
+    image: string;
+    date: string;
+    hoverText: string;
+}
+
+// Carousel Card Type
+export type CarouselCardType = {
+    name: string;
+    image: string;
 }
 
 // Project Type
-export type ProjectType = {}
-
-// Experience Type
-export type ExperienceType = {}
+export type ProjectType = {
+    name: string;
+    image: string;
+    shortDescription: string;
+    longDescription: string;
+    tags: string[];
+    link: string;
+}
 
 // Footer Type
 export type FooterType = {
     platform: string;
     link: string;
-    image: string;
-    normalColor: string;
-    color: string;
+    light: string;
+    dark: string;
     component: React.FC<any>;
+}
+
+// Footer
+export type SVGType = {
+    fill: string;
+    className: string;
+    size: number;
 }
