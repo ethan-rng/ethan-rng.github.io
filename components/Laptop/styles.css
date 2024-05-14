@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* All Applications */
+.icon {
+    @apply rounded-full h-3 sm:h-2 w-3 sm:w-2 mr-2
+}
+
+.indent {
+    @apply pl-2 sm:pl-4 py-0.5 w-2/5
+}
+
+.applicationWindow {
+    @apply relative rounded-lg w-[90%] h-[95%] z-40 animate-maximize text-xxs sm:text-xs;
+}
+
+
+/* Markdown.tsx */
+.markdown-container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #29292E;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
+    border: 5px solid #c5c1b7;
+    overflow: hidden;
+}
+
+.markdown-header{
+    background: #333;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.markdown-text-header{
+    @apply font-bold text-base sm:text-sm text-blue-300
+}
+
+.markdown-text{
+    @apply ml-3 text-base sm:text-xs
+}
+
+@media (max-width: 640px) {
+    .markdown-container {
+        border: 2px solid #c5c1b7;
+    }
+}
+
+/* Terminal.tsx */
+.terminal-container {
+    display: flex;
+    margin-top: 0.6rem;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #333;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal-title {
+    @apply text-[#9fa] text-base sm:text-xs
+}
+
+.terminal-content {
+    @apply p-[10px] text-sm sm:text-xs
+}
+
+.command-line {
+    margin-top: 10px;
+}
+
+.finder-window {
+    display: flex;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.sidebar {
+    width: 200px;
+    border-right: 1px solid #ccc;
+}
+
+.files-view {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+@media (max-width: 640px) {
+    .terminal-title {
+        line-height: 0.5rem;
+        padding-top: -10rem;
+        padding-bottom: -10rem;
+
+    }
+}
+
+
+/* Powerpoint.tsx*/
+.powerPoint-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+

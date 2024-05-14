@@ -1,0 +1,61 @@
+/** Default Font for Headers */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+
+.proxima-nova {
+  font-family: "Metrophobic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@layer components {
+  .textFont {
+    @apply proxima-nova dark:text-font text-darkFont text-4xl font-bold py-6
+  }
+
+  .hoverEffect {
+    @apply bg-white w-1/2 py-2 mt-4 sm:mr-4 hover:bg-gray-100 transition duration-300 ease-in-out
+  }
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imageAnimation.fadeIn {
+    animation: fadeInAnimation 0.5s;
+  }
+
+  .imageAnimation.fadeOut {
+    animation: fadeOutAnimation 0.5s;
+  }
+
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutAnimation {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+}
