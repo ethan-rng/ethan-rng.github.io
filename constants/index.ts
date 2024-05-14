@@ -35,7 +35,7 @@ export const aboutMe: AboutType[] = [
 // LAPTOP COMPONENT
 // Laptop UI Elements
 export const laptop: string = "/assets/images/About/laptopMacOS.png"
-export const finder: string = "/assets/images/About/finder.png"
+export const finder: string = "/assets/images/About/Finder.png"
 
 // ReadMe UI Elements
 export const README_Header: string = "READ_ME DOCUMENTATION";
