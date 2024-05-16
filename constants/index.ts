@@ -34,7 +34,7 @@ export const aboutMe: AboutType[] = [
 ]
 // LAPTOP COMPONENT
 // Laptop UI Elements
-export const laptop: string = "/assets/images/About/laptopMacOS.png"
+export const laptop: string = "/assets/images/About/laptopMacOS.webp"
 export const finder: string = "/assets/images/About/Finder.png"
 
 // ReadMe UI Elements
@@ -115,9 +115,9 @@ export const ExperienceCards: ExperienceTimelineType[] = [
 // DEFINING PROJECT || Note: longDescription might be added in the future
 export const CarouselCards: CarouselCardType[] = [
     {name: "Case Comps: Dive into my case competition projects, highlighting strategic innovation and teamwork!", image:"/assets/images/Projects/Carousel/CaseComp.jpeg"},
-    {name: "Misc. Projects: Come explore some of the weird side projects I am a part of!", image:"/assets/images/Projects/Carousel/MiscProject.png"},
+    {name: "Misc. Projects: Come explore some of the weird side projects I am a part of!", image:"/assets/images/Projects/Carousel/MiscProject.webp"},
     {name: "AI Projects: Discover my AI projects, where machine learning meets real-world applications!", image:"/assets/images/Projects/Carousel/AIProjects.jpeg"},
-    {name: "Hackathons: Look at some of the many hackathon style projects I've done!", image:"/assets/images/Projects/Carousel/Hackathons.png"},
+    {name: "Hackathons: Look at some of the many hackathon style projects I've done!", image:"/assets/images/Projects/Carousel/Hackathons.webp"},
 ]
 
 const CaseComps: ProjectType[] = [
@@ -140,7 +140,7 @@ const CaseComps: ProjectType[] = [
 const MiscProjects: ProjectType[] = [
     {
         name: "HarbourLink", image:"/assets/images/Projects/MiscProjects/HarbourLink.png", 
-    shortDescription: "Have you ever forgotten meeting someone before? With HarbourLink you won't need to worry!", longDescription: "Case Comps: Dive into my case competition projects, highlighting str",
+        shortDescription: "Have you ever forgotten meeting someone before? With HarbourLink you won't need to worry!", longDescription: "Case Comps: Dive into my case competition projects, highlighting str",
         tags: ["React-Native", "Figma", "Django", "Product Management", "Python", "OpenCV"], link: "https://github.com/ethan-rng/contactAppV2/blob/main/README.md"
     },
     {
@@ -152,6 +152,11 @@ const MiscProjects: ProjectType[] = [
         name: "Janky Zoom", image:"/assets/images/Projects/MiscProjects/JankyZoom.png", 
         shortDescription: "Ever had an idea during a call you wanted to draw by hand? Now you can with Janky Zoom!", longDescription: "Case Comps: Dive into my case competition projects, highlighting str",
         tags: ["React", "GitHub", "CanvaJS", "Firebase", "HTML", "CSS", "JavaScript"], link: "https://github.com/HaoChiBao/video-test"
+    },
+    {
+        name: "Western Dating Sim.", image:"/assets/images/Projects/MiscProjects/DatingSim.png", 
+        shortDescription: "This is one's pretty self explanatory. Click here if you need help finding love! CS 2212 Project", longDescription: "Case Comps: Dive into my case competition projects, highlighting str",
+        tags: ["Python", "GitHub", "Jira", "Pygame", "Figma", "Unit Testing", "Model View Controller"], link: "https://github.com/ethan-rng/Western-Dating-Sim"
     },
     
 ]

@@ -43,7 +43,7 @@ const Powerpoint = ( hobbyItem: HobbyItemType) => {
       <Image
         key={currSlide}
         className='animate-maximize'
-        src={`${hobbyItem.imageRoute}slide${currSlide}.png`}
+        src={`${hobbyItem.imageRoute}slide${currSlide}.webp`}
         onClick={handleNextSlide}
       />
       

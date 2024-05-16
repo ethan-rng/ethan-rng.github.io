@@ -48,7 +48,7 @@ const Hero = () => {
             landscape:lg:h-[50vh] ${/* Tablet Landscape mode */ true}
 
             ${/* Laptops */ true}
-            landscape:xl:h-[65vh] 
+            landscape:xl:h-[80vh] 
           `}
       id="home"
     >
@@ -105,7 +105,6 @@ const Hero = () => {
                     ${index === 0 ? 'block' : 'hidden landscape:block'} xl:block ${/* Displays only one image in mobile */ true}
                     h-full 
                     landscape:md:h-[90%] 
-                    landscape:lg:h-full
 
                     ${/* Mobile Devices */ true}
                     w-full ${/* Mobile Portrait mode*/ true}
@@ -117,7 +116,7 @@ const Hero = () => {
         
                     ${/* Laptops */ true}
                     landscape:xl:w-1/2 xl:w-1/2
-                    landscape:xl:h-full
+                    landscape:xl:h-[90%]
 
                     ${leftOrRight === "left" ? "sm:animate-slideleft" : "sm:animate-slideright"} 
                     ${index === 1 ? 'pl-8' : ''}
