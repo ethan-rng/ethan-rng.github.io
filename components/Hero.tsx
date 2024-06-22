@@ -116,7 +116,7 @@ const Hero = () => {
         
                     ${/* Laptops */ true}
                     landscape:xl:w-1/2 xl:w-1/2
-                    landscape:xl:h-[82%]
+                    landscape:xl:h-[90%]
 
                     ${leftOrRight === "left" ? "sm:animate-slideleft" : "sm:animate-slideright"} 
                     ${index === 1 ? 'pl-8' : ''}
