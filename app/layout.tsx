@@ -1,16 +1,34 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Head from "next/head";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+import Ambient from "@/components/Ambient";
+import Cursor from "@/components/Cursor";
+import Sidebar from "@/components/Sidebar";
+import SiteFooter from "@/components/SiteFooter";
+import { site } from "@/data/site";
+import "./globals.css";
+
+const sans = Geist({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const mono = Geist_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
-  title: "Ethan Rong | Website",
-  description: "Figuring Life Out One Step At A Time ",
-}
+  title: `${site.name} — ${site.title}`,
+  description: site.description,
+};
+
+export const viewport = {
+  // Keep in sync with `bg` in tailwind.config.ts.
+  themeColor: "#121212",
+};
 
 export default function RootLayout({
   children,
@@ -18,20 +36,36 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <Head>
-        <title>Ethan Rong's Personal Website</title>
-        <meta name="description" content="Welcome to My Personal Website" />
-        <link rel="icon" href="@/public/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Great+Vibes&family=Kanit&family=Orbitron&family=Poppins&display=swap" rel="stylesheet" />
-      </Head>
+    // data-scroll-behavior: opt in to Next's scroll handling for the smooth
+    // scrolling set in globals.css (Next 16 no longer does this implicitly).
+    <html
+      lang="en"
+      className={`${sans.variable} ${mono.variable}`}
+      data-scroll-behavior="smooth"
+    >
+      <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-raised focus:px-3 focus:py-2 focus:text-sm focus:text-bright"
+        >
+          Skip to content
+        </a>
 
-      <body className={inter.className}>
-        <div className="dark:bg-primary bg-darkPrimary w-full h-full flex flex-col items-center pt-8 pb-6 proxima-nova">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <Ambient />
+        <Cursor />
+        <Sidebar />
+
+        {/* Offset matches the sidebar width on desktop, the top bar on mobile. */}
+        <main
+          id="main"
+          className="relative z-10 px-6 pb-32 pt-24 sm:px-10 md:ml-64 md:pt-32 lg:ml-72 lg:px-16"
+        >
+          {/* Sections hold themselves to prose width; the bento opts out. */}
+          <div className="max-w-5xl">
+            {children}
+            <SiteFooter />
+          </div>
+        </main>
       </body>
     </html>
   );

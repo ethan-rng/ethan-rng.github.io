@@ -2,56 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html{
-  scroll-behavior: smooth;
-  font-size: 6px
-}
-
-
-/* Larger font size for tablets and small desktops */
-@media (min-width: 768px) {
+@layer base {
   html {
-    font-size: 9px;
+    scroll-behavior: smooth;
+    /* Anchor links land below the mobile top bar instead of under it. */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    /* Mono throughout — the whole site reads as terminal output. */
+    @apply bg-bg text-fg text-base font-mono antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-bright;
+  }
+
+  /*
+   * Only set once <Cursor> mounts and decides to run — so touch devices and
+   * anyone with reduced motion enabled keep the native cursor, and it never
+   * disappears if JS fails to load.
+   */
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none;
+  }
+
+  /* Keyboard focus only — no ring on mouse clicks. */
+  :focus-visible {
+    @apply outline-none ring-1 ring-accent/70 ring-offset-2 ring-offset-bg rounded-sm;
   }
 }
-
-/* Even larger font size for medium desktops */
-@media (min-width: 1024px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-/* Largest font size for large desktops */
-@media (min-width: 1200px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 1400px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 1536px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 2560px) {
-  html {
-    font-size: 23px;
-  }
-}
-
-:root {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-}
-
-

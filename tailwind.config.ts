@@ -2,137 +2,62 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./data/**/*.{ts,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: {
-        body: ['poppins', 'sans-serif'],
-      },
       colors: {
-        primary: "#FAFAFA",
-        secondary: "#EAEAEA",
-        tertiary: "#7dd3fc",
-        highlight: "#FFFFFF",
-        font: "#515050",
-
-        darkPrimary: "#01040C",
-        darkSecondary: "#181818",
-        darkTertiary: "#5C6C82",
-        darkHighlight: "#504E4F",
-        darkFont: "#FFFFFF",
+        // Soft near-black canvas — dark without the harshness of true black.
+        // `raised` is for the rare surface that needs to sit above it.
+        bg: "#121212",
+        raised: "#1c1c1c",
+        // Type scale: bright for headings, fg for prose, muted for
+        // everything secondary (dates, tags, nav in its resting state).
+        // Named `fg` rather than `base` so it can't collide with the
+        // built-in `text-base` font size.
+        // Contrast against #121212: fg 14.9:1, muted 6.7:1, faint 4.9:1.
+        // `faint` is the floor — it lands on small text (labels, tags,
+        // dates), so it has to clear WCAG AA's 4.5:1. Don't darken it, and
+        // re-check it if you ever lighten `bg` further.
+        bright: "#ededed",
+        fg: "#e5e5e5",
+        muted: "#9b9b9b",
+        faint: "#828282",
+        // Hairlines only — never filled boxes. Lifted a little from the
+        // divider grey so the dashed sidebar rule still reads on `bg`.
+        line: "#2e2e2e",
+        // The single accent. Hover and active states only; nothing is
+        // accent-colored at rest.
+        //
+        // Meta's brand blue (#0064E0) is only 3.48:1 on this background and
+        // Facebook blue (#1877F2) is 4.42:1 — both fail WCAG AA for text. So
+        // the interactive accent is a lightened Meta blue at 5.59:1, and the
+        // true brand blue is kept for `accentDeep`, which is only ever used
+        // for the ambient glow where nothing has to be legible.
+        accent: "#3b8aff",
+        accentDeep: "#0064e0",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       fontSize: {
-        xxxs: ['0.5rem', '0.5rem'],
-        xxs: ['0.625rem', '0.75rem'] 
+        xs: ["0.75rem", { lineHeight: "1.5" }],
+        sm: ["0.8125rem", { lineHeight: "1.7" }],
+        base: ["0.9375rem", { lineHeight: "1.8" }],
+        lg: ["1.0625rem", { lineHeight: "1.7" }],
       },
-      transitionDelay: {
-        '0': '0ms',
-        '100': '100ms',
-        '200': '200ms',
-        '300': '300ms',
-        '400': '400ms',
-        '500': '500ms',
-        '1000': '1000ms',
+      maxWidth: {
+        prose: "38rem",
       },
-      screens: {
-        'landscape': { 'raw': '(orientation: landscape)'},
-        xs: "385px", // Smallest smartphones
-        sm: "640px", // Small screens, like smartphones
-        md: "768px", // Medium screens, like tablets
-        lg: "1024px", // Large screens, like laptops
-        xl: "1280px", // Extra large screens, like desktops
-        "2xl": "1536px", // Extra extra large screens
+      transitionDuration: {
+        DEFAULT: "180ms",
       },
     },
-
-    animation: {
-      slideup: "slideup 1s ease-in-out",
-      slidedown: "slidedown 1s ease-in-out",
-      slideleft: "slideleft 1s ease-in-out",
-      slideright: "slideright 1s ease-in-out",
-      wave: "wave 1.2s linear infinite",
-      slowfade: "slowfade 2.2s ease-in-out",
-      bounce: "bounce 1s infinite",
-      grow: "grow 1s ease-in forwards",
-      fadeInUp: 'fadeInUp 1s ease-out forwards',
-      fadeInOut: "fadeInOut 2s linear infinite",
-      minimize: 'minimizeEffect 0.5s ease-in-out forwards',
-      maximize: 'maximizeEffect 0.5s ease-in-out forwards',
-    },
-
-    keyframes: {
-      slideup: {
-        from: { opacity: "0", transform: "translateY(25%)" },
-        to: { opacity: "1", transform: "translateY(0)" },
-      },
-      slidedown: {
-        from: { opacity: "0", transform: "translateY(-25%)" },
-        to: { opacity: "1", transform: "translateY(0)" },
-      },
-      slideleft: {
-        from: { opacity: "0", transform: "translateX(-20px)" },
-        to: { opacity: "1", transform: "translateX(0)" },
-      },
-      slideright: {
-        from: { opacity: "0", transform: "translateX(20px)" },
-        to: { opacity: "1", transform: "translateX(0)" },
-      },
-      slowfade: {
-        from: { opacity: "0" },
-        to: { opacity: "1" },
-      },
-      bounce: {
-        '0%, 100%': {
-          transform: 'translateY(-25%)',
-          'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)', // Optional if you want to include it here
-        },
-        '50%': {
-          transform: 'translateY(0)',
-          'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)', // Optional if you want to include it here
-        },
-      },
-      grow: {
-        from: { transform: "scale(0.6)" },
-        to: { transform: "scale(1)" },
-      },
-      fadeInUp: {
-        '0%': { opacity: '0', transform: 'translateY(20px)' },
-        '100%': { opacity: '1', transform: 'translateY(0)' },
-      },
-      fadeInOut: {
-        '0%': { opacity: '1' },
-        '50%': { opacity: '0' },
-        '100%': { opacity: '1' },
-      },
-      minimizeEffect: {
-        '0%': {
-          transform: 'translateY(0) scale(1)',
-          opacity: '1',
-        },
-        '100%': {
-          transform: 'translateY(100px) scale(0.5)',
-          opacity: '0',
-        },
-      },
-      maximizeEffect: {
-        '0%': {
-          transform: 'translateY(100px) scale(0.5)',
-          opacity: '0',
-        },
-        '100%': {
-          transform: 'translateY(0) scale(1)',
-          opacity: '1',
-        },
-      },
-    },
-    plugins: [],
   },
+  plugins: [],
 };
-
-
 
 export default config;
