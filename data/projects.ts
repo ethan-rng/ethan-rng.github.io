@@ -206,6 +206,12 @@ export const projects: Project[] = [
             "The two platforms want different things. Google's pass is a generic object created against an issuer through a service-account JWT; Apple's is a signed .pkpass bundle, which the site stores in Cloudflare R2 and hands back the most recent one for that hacker. Both start from the same user record and the same generated QR.",
             "My work here was the manual pass creation path and, later, the gating around it. The initial QR and wallet plumbing was a teammate's.",
           ],
+          figure: {
+            src: "/images/projects/pass-flow.svg",
+            alt: "Flow diagram: the dashboard calls qrRouter.generate with a wallet type, which runs isUserApprovedForEvent. An unapproved user gets a 403. An approved user gets a QR encoding their user id, then either the newest Apple pkpass from R2 or a Google generic pass object signed with a service-account JWT.",
+            caption: "One record in, two very different pass formats out.",
+            diagram: true,
+          },
         },
         {
           heading: "The hole, and closing it",
@@ -213,6 +219,12 @@ export const projects: Project[] = [
             "The root cause was that no endpoint was gated on application status. Generation only required a session, and while the scan endpoint checked that the scanner was an organizer, it never validated the status of the person being scanned. Both paths trusted a user id that anyone with an account had.",
             "Closing it meant one shared approval predicate rather than two separate checks that could drift, applied at both the generate and the scan boundary, plus tests over the scavenger hunt flow that depended on it.",
           ],
+          figure: {
+            src: "/images/projects/pass-gate.svg",
+            alt: "Before and after diagram. Before: the generate endpoint only required a signed-in user and the scan endpoint only checked the scanner was an organizer, so a pass and points were issued regardless. After: both endpoints pass through one isUserApprovedForEvent predicate, which allows ACCEPTED or CONFIRMED applications plus organizers and sponsors.",
+            caption: "The same two endpoints, before and after. The gate is one predicate, not two checks that can drift apart.",
+            diagram: true,
+          },
         },
         {
           heading: "The rest of the loop",
