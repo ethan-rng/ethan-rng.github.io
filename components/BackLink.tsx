@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * Reads as a shell command — `cd ../projects` — with the real destination
+ * Reads as a shell command, `cd ../projects`, with the real destination
  * announced to screen readers, which shouldn't have to parse a path.
  */
 export default function BackLink({

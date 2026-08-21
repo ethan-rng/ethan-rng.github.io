@@ -20,6 +20,22 @@ export default function SiteFooter() {
         </a>
       </p>
       <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+        <li>
+          <a
+            href={site.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-faint transition-colors hover:text-accent"
+          >
+            <span aria-hidden="true" className="text-line">
+              [
+            </span>
+            Resume
+            <span aria-hidden="true" className="text-line">
+              ]
+            </span>
+          </a>
+        </li>
         {socials.map((social) => (
           <li key={social.label}>
             <a

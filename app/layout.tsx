@@ -21,7 +21,7 @@ const mono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.title}`,
+  title: `${site.name}, ${site.title}`,
   description: site.description,
 };
 
@@ -60,8 +60,8 @@ export default function RootLayout({
           id="main"
           className="relative z-10 px-6 pb-32 pt-24 sm:px-10 md:ml-64 md:pt-32 lg:ml-72 lg:px-16"
         >
-          {/* Sections hold themselves to prose width; the bento opts out. */}
-          <div className="max-w-5xl">
+          {/* No width cap, content fills everything right of the sidebar. */}
+          <div>
             {children}
             <SiteFooter />
           </div>

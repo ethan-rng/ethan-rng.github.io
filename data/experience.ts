@@ -1,5 +1,5 @@
 /**
- * Work history — roles only, no education. Same idea as projects.ts: edit the
+ * Work history, roles only, no education. Same idea as projects.ts: edit the
  * array, the section follows. Newest first; the list renders in array order.
  *
  * Sourced from LinkedIn. Tags aren't on LinkedIn; they're drawn from each
@@ -11,18 +11,20 @@ export type Role = {
   /** Job title, e.g. "Software Engineer". */
   role: string;
   company: string;
-  /** Free text so you can write "2024 — Present" or "Summer 2023". */
+  /** Free text so you can write "2024 – Present" or "Summer 2023". */
   period: string;
   /** Optional. One line on what you actually did. */
   description?: string;
   /** Optional. Tech or focus areas, rendered as small monospace labels. */
   tags?: string[];
-  /** Optional. Links the company name out. */
+  /**
+   * Links the company name out. These point at the organisation; swap the
+   * Ivey one for the case's own Ivey Publishing page once you have the URL.
+   */
   href?: string;
   /**
-   * Optional square mark next to the role — a logo or a photo, as a path
-   * under `public/`. The monogram SVGs in `public/images/experience/` are
-   * placeholders; swap in real logos when you have them.
+   * The company's logo, as a path under `public/`. Rendered on a light chip
+   * with `object-contain`, so a wide wordmark is as safe as a square mark.
    */
   image?: string;
 };
@@ -31,7 +33,8 @@ export const experience: Role[] = [
   {
     role: "Production Engineer Intern",
     company: "Meta",
-    period: "Jun 2026 — Present",
+    href: "https://www.metacareers.com",
+    period: "Jun 2026 – Present",
     description: "AI infrastructure work on the Ads ML Training team.",
     image: "/images/experience/meta.svg",
     tags: ["AI Infrastructure", "Production Engineering"],
@@ -39,7 +42,8 @@ export const experience: Role[] = [
   {
     role: "Production Engineer Intern",
     company: "Meta",
-    period: "May 2025 — Aug 2025",
+    href: "https://www.metacareers.com",
+    period: "May 2025 – Aug 2025",
     description:
       "Fault injection testing in production, alongside full-stack development.",
     image: "/images/experience/meta.svg",
@@ -48,16 +52,18 @@ export const experience: Role[] = [
   {
     role: "Case Author",
     company: "Ivey Business School",
-    period: "Mar 2025 — Jun 2025",
+    href: "https://www.thecasecentre.org/search/results/?s=A6D878C0BE2A40E7B12BE1B443DA1FED",
+    period: "Mar 2025 – Jun 2025",
     description:
       "Published a case on monetization opportunities for DeepSeek and other open-source AI foundation models.",
-    image: "/images/experience/ivey.jpg",
+    image: "/images/experience/ivey.svg",
     tags: ["Case Writing", "Open-Source AI", "Monetization"],
   },
   {
     role: "Production Engineer Fellow",
     company: "MLH Fellowship",
-    period: "Jun 2024 — Aug 2024",
+    href: "https://fellowship.mlh.io",
+    period: "Jun 2024 – Aug 2024",
     description: "Meta × MLH production engineering fellowship, Summer B.",
     image: "/images/experience/mlh.svg",
     tags: ["Production Engineering", "Open Source"],

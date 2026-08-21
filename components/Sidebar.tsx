@@ -31,7 +31,7 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Mobile top bar — dashed to match the sidebar rule on desktop. */}
+      {/* Mobile top bar, dashed to match the sidebar rule on desktop. */}
       <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-dashed border-line bg-bg/70 px-6 py-4 backdrop-blur-xl md:hidden">
         <Link
           href="/"
@@ -125,6 +125,22 @@ export default function Sidebar() {
         </div>
 
         <ul className="mt-16 flex flex-wrap gap-x-5 gap-y-2 md:mt-0">
+          <li>
+            <a
+              href={site.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-faint transition-colors hover:text-accent"
+            >
+              <span aria-hidden="true" className="text-line">
+                [
+              </span>
+              Resume
+              <span aria-hidden="true" className="text-line">
+                ]
+              </span>
+            </a>
+          </li>
           {socials.map((social) => (
             <li key={social.label}>
               <a

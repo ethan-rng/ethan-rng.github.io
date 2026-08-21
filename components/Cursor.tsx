@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
  *
  * Deliberately does nothing unless the device has a fine pointer (so touch
  * and stylus keep their native behaviour) and the user hasn't asked for
- * reduced motion. When it's off, the native cursor is left alone — the
+ * reduced motion. When it's off, the native cursor is left alone, the
  * `cursor: none` rule is only applied once this mounts and decides to run.
  */
 export default function Cursor() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import BackLink from "@/components/BackLink";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = getPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — ${site.name}`,
+    title: `${post.title}, ${site.name}`,
     description: post.summary,
   };
 }
@@ -39,7 +40,7 @@ export default async function PostPage({ params }: Params) {
     <article className="pb-16">
       <BackLink href="/#writing" label="Writing" />
 
-      <header className="mt-10 max-w-prose">
+      <header className="mt-10">
         <time
           dateTime={post.date}
           className="font-mono text-xs uppercase tracking-widest text-faint"
@@ -52,7 +53,19 @@ export default async function PostPage({ params }: Params) {
         )}
       </header>
 
-      <div className="mt-10 max-w-prose space-y-5 border-t border-dashed border-line pt-8">
+      {post.image && (
+        <Image
+          src={post.image}
+          alt=""
+          width={1600}
+          height={800}
+          priority
+          sizes="(max-width: 768px) 100vw, 80vw"
+          className="mt-10 aspect-[2/1] w-full border border-dashed border-line object-cover grayscale transition duration-500 hover:grayscale-0"
+        />
+      )}
+
+      <div className="mt-10 space-y-5 border-t border-dashed border-line pt-8">
         {post.body.map((paragraph, i) => (
           <p key={i} className="text-base text-fg">
             {paragraph}

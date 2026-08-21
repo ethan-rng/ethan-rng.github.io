@@ -1,5 +1,5 @@
 /**
- * The top of a route. `## work ─────` — the page's one <h1>, with a dashed
+ * The top of a route. `## work ─────`, the page's one <h1>, with a dashed
  * rule running out to the margin.
  */
 export default function PageHeader({
@@ -22,7 +22,7 @@ export default function PageHeader({
         />
       </h1>
       {description && (
-        <p className="mt-5 max-w-prose text-sm text-muted">{description}</p>
+        <p className="mt-5 text-sm text-muted">{description}</p>
       )}
     </header>
   );

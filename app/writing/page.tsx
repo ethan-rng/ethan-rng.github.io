@@ -7,7 +7,7 @@ import { posts } from "@/data/writing";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Writing — ${site.name}`,
+  title: `Writing, ${site.name}`,
   description: "Notes and posts.",
 };
 
@@ -25,7 +25,7 @@ export default function WritingPage() {
       {posts.length === 0 ? (
         <p className="text-sm text-muted">Nothing published yet.</p>
       ) : (
-        <ul className="max-w-prose">
+        <ul>
           {posts.map((post) => {
             // A body means the post has its own page; otherwise link out.
             const external = !post.body && !!post.href;
@@ -41,8 +41,8 @@ export default function WritingPage() {
                     <Image
                       src={post.image}
                       alt=""
-                      width={480}
-                      height={320}
+                      width={200}
+                      height={134}
                       className="hidden h-14 w-20 shrink-0 border border-dashed border-line object-cover grayscale transition duration-500 group-hover:grayscale-0 sm:block"
                     />
                   )}

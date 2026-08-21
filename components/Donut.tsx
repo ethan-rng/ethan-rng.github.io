@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef } from "react";
 
 /**
- * The classic spinning ASCII torus — a port of Andy Sloane's donut.c.
+ * The classic spinning ASCII torus, a port of Andy Sloane's donut.c.
  *
  * Two angles, A and B, rotate the torus about the x and z axes. For each
  * point on its surface we project to a character cell, keep the nearest hit
@@ -51,7 +51,7 @@ function renderFrame(
       const sinPhi = Math.sin(phi);
       const cosPhi = Math.cos(phi);
 
-      // Circle of radius 1 offset by 2 — the tube, before revolution.
+      // Circle of radius 1 offset by 2, the tube, before revolution.
       const circleX = cosTheta + 2;
       // One over z, after pushing the torus 5 units from the camera.
       const ooz = 1 / (sinPhi * circleX * sinA + sinTheta * cosA + 5);
@@ -102,7 +102,7 @@ export default function Donut({
   const preRef = useRef<HTMLPreElement>(null);
 
   // Rendered on the server too. renderFrame is pure, so the markup matches on
-  // hydration — and it means the torus is there before JS runs (and stays, if
+  // hydration, and it means the torus is there before JS runs (and stays, if
   // JS never arrives), with the box reserving its height from the first paint.
   const initialFrame = useMemo(
     () => renderFrame(0, 0, width, height),

@@ -1,5 +1,5 @@
 /**
- * Writing list. Same idea as projects.ts — edit the array, the section
+ * Writing list. Same idea as projects.ts, edit the array, the section
  * follows.
  *
  * A post with a `body` gets its own page at /writing/<slug>. A post with an
@@ -30,7 +30,7 @@ export const posts: Post[] = [
     date: "2025-06-01",
     summary: "A one-line standfirst that says why this is worth reading.",
     body: [
-      "Opening paragraph. Placeholder text — replace it with the actual post.",
+      "Opening paragraph. Placeholder text, replace it with the actual post.",
       "A second paragraph. The measure here is set for reading, so long-form prose sits comfortably without extra work.",
       "A third, to show the rhythm of the page once there's real writing in it.",
     ],
@@ -42,7 +42,7 @@ export const posts: Post[] = [
     date: "2025-02-18",
     summary: "Another standfirst, doing the same job as the one above.",
     body: [
-      "Opening paragraph. Placeholder text — replace it with the actual post.",
+      "Opening paragraph. Placeholder text, replace it with the actual post.",
       "A second paragraph to give the page some body.",
     ],
     image: "/images/projects/placeholder-3.svg",

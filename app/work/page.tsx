@@ -5,7 +5,7 @@ import ProjectBento from "@/components/ProjectBento";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Work — ${site.name}`,
+  title: `Work, ${site.name}`,
   description: "Projects and case studies.",
 };
 

@@ -19,7 +19,10 @@ export default function ExperienceItem({ item }: { item: Role }) {
           alt=""
           width={96}
           height={96}
-          className="mt-1 h-10 w-10 shrink-0 rounded-md border border-dashed border-line object-cover grayscale transition duration-500 group-hover:grayscale-0"
+          /* A light chip: these are brand marks, and several of them (Ivey's
+             dark green, MLH's navy) are invisible against a near-black tile.
+             object-contain so a wide wordmark isn't cropped to its middle. */
+          className="mt-1 h-10 w-10 shrink-0 rounded-md border border-dashed border-line bg-[#ededed] object-contain p-1 grayscale transition duration-500 group-hover:grayscale-0"
         />
       )}
 

@@ -29,7 +29,7 @@
   }
 
   body {
-    /* Mono throughout — the whole site reads as terminal output. */
+    /* Mono throughout, the whole site reads as terminal output. */
     @apply bg-bg text-fg text-base font-mono antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -39,7 +39,7 @@
   }
 
   /*
-   * Only set once <Cursor> mounts and decides to run — so touch devices and
+   * Only set once <Cursor> mounts and decides to run, so touch devices and
    * anyone with reduced motion enabled keep the native cursor, and it never
    * disappears if JS fails to load.
    */
@@ -48,7 +48,7 @@
     cursor: none;
   }
 
-  /* Keyboard focus only — no ring on mouse clicks. */
+  /* Keyboard focus only, no ring on mouse clicks. */
   :focus-visible {
     @apply outline-none ring-1 ring-accent/70 ring-offset-2 ring-offset-bg rounded-sm;
   }
