@@ -30,6 +30,20 @@ export type Fact = {
   value: string;
 };
 
+/** An inline diagram or screenshot inside a write-up section. */
+export type Figure = {
+  src: string;
+  alt: string;
+  /** Shown beneath the image, in the article's own voice. */
+  caption: string;
+  /**
+   * A line drawing rather than a screenshot. Rendered with its white
+   * background keyed out and its lightness inverted, so it reads on a dark
+   * page without losing its hues.
+   */
+  diagram?: boolean;
+};
+
 export type CaseStudy = {
   /** Short descriptor under the title, e.g. "Internal analytics platform". */
   kicker: string;
@@ -46,8 +60,12 @@ export type CaseStudy = {
   glance: string;
   /** Numbered highlights: the two or three things you actually did. */
   highlights: Array<{ title: string; body: string }>;
-  /** Long-form sections, in order. */
-  sections: Array<{ heading: string; paragraphs: string[] }>;
+  /** Long-form sections, in order. Each can carry one figure. */
+  sections: Array<{
+    heading: string;
+    paragraphs: string[];
+    figure?: Figure;
+  }>;
 };
 
 export type Project = {
@@ -214,7 +232,7 @@ export const projects: Project[] = [
     href: "https://medium.com/hack-western/we-ran-hack-western-interviews-off-my-pc-heres-how-we-built-it-in-two-days-b7d0d601a853",
     year: "2026",
     image: "/images/projects/interviews-thumb.jpg",
-    heroImage: "/images/projects/interviews-architecture.jpg",
+    heroImage: "/images/projects/interviews-candidate.jpg",
     caseStudy: {
       kicker: "Hack Western 13 · internal tooling",
       headline:
@@ -255,16 +273,65 @@ export const projects: Project[] = [
           ],
         },
         {
-          heading: "How it works",
+          heading: "The shape of it",
           paragraphs: [
-            "Each room is a Docker container running code-server (VS Code in the browser) with a freshly cloned copy of the evaluation mounted into the workspace. Extensions and a dark theme are baked into the image, so nobody starts an interview configuring their editor.",
-            "Tailscale Funnels put each room on its own public path, a reverse proxy strips that prefix before the request reaches the container, and Bash scripts underneath handle the lifecycle: list rooms, assign a candidate, rotate the password, save the work, reset for the next one.",
-            "Reassigning a candidate who has been in before restores their previous code and evaluation rather than issuing a blank workspace, a safeguard for reconnects and re-runs.",
+            "Everything runs on one desktop. A Tailscale Funnel puts that machine on the public internet without touching the home router, each room is mapped to its own path and its own local port, and an HTTP proxy sits between those paths and the Docker containers that hold the interviews.",
+            "Interviewers get the root path and can see every room. Candidates get exactly one.",
+          ],
+          figure: {
+            src: "/images/projects/interviews-architecture.png",
+            alt: "Architecture diagram: a client connects through a Tailscale Funnel to a PC, where interviewer and candidate paths pass through an HTTP proxy server into separate Docker containers for room1 and room2.",
+            caption: "Client to funnel to proxy to container. The proxy exists because of the path prefix, which is the part that broke first.",
+            diagram: true,
+          },
+        },
+        {
+          heading: "Rooms, not a container per candidate",
+          paragraphs: [
+            "A container per interview was too expensive in memory, so a fixed pool of rooms gets reused. Assigning a candidate clones a fresh copy of the evaluation, mounts it into a room, and rotates that room's password, which is also what stops anyone rejoining after their slot.",
+            "Reassigning someone who has been in before restores their previous code and evaluation instead of a blank workspace, which matters when a connection drops mid-interview.",
+          ],
+          figure: {
+            src: "/images/projects/interviews-rooms.jpg",
+            alt: "Terminal output of the interview list command, showing room1 occupied by tester1 with a URL, password, PID and running status, and room2 free.",
+            caption: "interview list: who is in which room, what they were issued, and what is still free.",
+          },
+        },
+        {
+          heading: "Assigning a candidate",
+          paragraphs: [
+            "One command creates the workspace, reclaims permissions, generates a password, starts the proxy for that port, installs dependencies inside the container, and prints the link to send.",
+            "The link and the password are per-assignment, so the previous candidate's credentials stop working the moment the next one is placed.",
+          ],
+          figure: {
+            src: "/images/projects/interviews-assign.jpg",
+            alt: "Terminal output of interview assign tester1: creating a workspace, reclaiming permissions, generating a password, starting the proxy, installing dependencies, then printing the room URL and password.",
+            caption: "One command from an empty room to a link you can paste into the chat.",
+          },
+        },
+        {
+          heading: "Getting it onto the internet",
+          paragraphs: [
+            "Port forwarding a home router was the option I did not want. Tailscale puts every device on a private network, and Funnels expose one chosen port on one chosen machine to the public internet, so nothing else on the network is reachable.",
+            "Each room is served under its own path on the machine's tailnet domain, which is where the routing problem starts: the apps inside the containers had no idea they were being served from a subpath.",
+          ],
+          figure: {
+            src: "/images/projects/interviews-tailnet.jpg",
+            alt: "Tailscale machines list showing several devices named after frederick, with the Linux desktop marked as having Funnel enabled.",
+            caption: "The tailnet. Only the desktop has a Funnel; everything else is just on the private network.",
+          },
+        },
+        {
+          heading: "The editor itself",
+          paragraphs: [
+            "Each room runs code-server, which is VS Code in the browser, with the evaluation mounted into the workspace. Extensions and a dark theme are baked into the image, so nobody spends part of their thirty minutes configuring an editor.",
+            "Candidates can run the dev server as normal. From their side it is just VS Code, on their own machine, with their own keyboard.",
           ],
         },
         {
-          heading: "What broke, and what's next",
+          heading: "What broke, and what is next",
           paragraphs: [
+            "Serving rooms under a path prefix broke the apps inside them twice over. The React router read the prefix as a route, and asset requests resolved against the wrong base, so the proxy strips the prefix on the way in and Vite's base path is injected per container at runtime.",
             "Self-hosting was the interesting part and also the weak point. A home network drop or a spontaneous reboot meant falling back to the old laptop method mid-schedule; a serverless container runtime would trade the fun for reliability.",
             "The core logic is Bash, which stopped scaling with the complexity, and the tool is CLI-only: fine for a technical team, less so if it outlives one. Both are on the list, along with moving it onto the hackwestern.com domain and open-sourcing it.",
           ],

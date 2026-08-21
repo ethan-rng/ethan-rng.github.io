@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import BackLink from "@/components/BackLink";
 import ImpactStats from "@/components/ImpactStats";
+import SectionFigure from "@/components/SectionFigure";
 import { getProject, projects } from "@/data/projects";
 import { site } from "@/data/site";
 
@@ -40,7 +41,7 @@ export default async function ProjectPage({ params }: Params) {
     <article className="pb-16">
       <BackLink href="/#projects" label="Projects" />
 
-      <header className="mt-10">
+      <header>
         <p className="font-mono text-xs uppercase tracking-widest text-faint">
           {kicker}
         </p>
@@ -64,19 +65,9 @@ export default async function ProjectPage({ params }: Params) {
         />
       )}
 
-      <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-dashed border-line pt-8 sm:grid-cols-4">
-        {facts.map((fact) => (
-          <div key={fact.label}>
-            <dt className="font-mono text-xs uppercase tracking-widest text-faint">
-              {fact.label}
-            </dt>
-            <dd className="mt-2 text-sm text-fg">{fact.value}</dd>
-          </div>
-        ))}
-      </dl>
-
       {/* Summary and Full write-up are the two top-level movements; both use
-          the rule-heading, so the split reads at a glance. */}
+          the rule-heading, so the split reads at a glance. Facts, highlights
+          and the glance line all sit inside Summary. */}
       <section className="mt-20">
         <h2 className="flex items-baseline gap-4">
           <span className="text-xl text-bright sm:text-2xl">Summary</span>
@@ -85,12 +76,45 @@ export default async function ProjectPage({ params }: Params) {
             className="h-0 flex-1 self-center border-t border-dashed border-line"
           />
         </h2>
-        <p className="mt-6 text-lg text-fg">{glance}</p>
+
+        <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+          {facts.map((fact) => (
+            <div key={fact.label}>
+              <dt className="font-mono text-xs uppercase tracking-widest text-faint">
+                {fact.label}
+              </dt>
+              <dd className="mt-2 text-sm text-fg">{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <ol className="mt-8 grid gap-3 sm:grid-cols-3">
+          {highlights.map((highlight, i) => (
+            <li
+              key={highlight.title}
+              className="relative border border-dashed border-line bg-white/[0.02] p-5 backdrop-blur-2xl"
+            >
+              <span className="font-mono text-xs text-accent">
+                <span aria-hidden="true" className="text-line">
+                  [
+                </span>
+                {String(i + 1).padStart(2, "0")}
+                <span aria-hidden="true" className="text-line">
+                  ]
+                </span>
+              </span>
+              <h3 className="mt-3 text-base text-bright">{highlight.title}</h3>
+              <p className="mt-2 text-sm text-muted">{highlight.body}</p>
+            </li>
+          ))}
+        </ol>
+
+        <p className="mt-8 text-lg text-fg">{glance}</p>
       </section>
 
       {/* Everything above is the summary; everything below is the story.
           Same shape as the section headings, minus the number. */}
-      <h2 className="mt-20 flex items-baseline gap-4">
+      <h2 className="mt-24 flex items-baseline gap-4">
         <span className="text-xl text-bright sm:text-2xl">Full write-up</span>
         <span
           aria-hidden="true"
@@ -119,34 +143,9 @@ export default async function ProjectPage({ params }: Params) {
               </p>
             ))}
           </div>
+          {section.figure && <SectionFigure figure={section.figure} />}
         </section>
       ))}
-
-      <section className="mt-16">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-faint">
-          Highlights
-        </h3>
-        <ol className="mt-8 grid gap-3 sm:grid-cols-3">
-          {highlights.map((highlight, i) => (
-            <li
-              key={highlight.title}
-              className="relative border border-dashed border-line bg-white/[0.02] p-5 backdrop-blur-2xl"
-            >
-              <span className="font-mono text-xs text-accent">
-                <span aria-hidden="true" className="text-line">
-                  [
-                </span>
-                {String(i + 1).padStart(2, "0")}
-                <span aria-hidden="true" className="text-line">
-                  ]
-                </span>
-              </span>
-              <h4 className="mt-3 text-base text-bright">{highlight.title}</h4>
-              <p className="mt-2 text-sm text-muted">{highlight.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
 
       <footer className="mt-16 border-t border-dashed border-line pt-8">
         {tags.length > 0 && (
