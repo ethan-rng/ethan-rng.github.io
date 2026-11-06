@@ -55,12 +55,7 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
+        # next.config.mjs sets basePath /v0 itself, so no static_site_generator injection here
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -75,10 +70,16 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      # the site lives under /v0; the domain root redirects there
+      - name: Nest under /v0
+        run: |
+          mkdir -p _site
+          mv out _site/v0
+          printf '<!doctype html><meta charset="utf-8"><title>Archive</title><meta http-equiv="refresh" content="0; url=/v0/"><link rel="canonical" href="/v0/"><a href="/v0/">v0</a>\n' > _site/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./_site
 
   # Deployment job
   deploy:
